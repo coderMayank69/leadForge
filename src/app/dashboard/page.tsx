@@ -51,10 +51,11 @@ export default function DashboardPage() {
     fetch('/api/providers').then(r => r.json()).then(d => {
       if (d.success) {
         setProviders(d.data);
-        if (d.data.length > 0 && !selected) setSelected(d.data[0].slug);
+        // Only set selected if we don't have one selected yet
+        setSelected(prev => prev || (d.data.length > 0 ? d.data[0].slug : null));
       }
     });
-  }, [selected]);
+  }, []);
 
   // SSE connection for real-time updates
   const connectSSE = useCallback((slug: string) => {

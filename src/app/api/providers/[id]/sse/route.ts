@@ -32,7 +32,7 @@ export async function GET(
           return;
         }
 
-        let lastCount = 0;
+        let lastCount = -1;
 
         const pollInterval = parseInt(process.env.SSE_POLL_INTERVAL_MS || '2000', 10);
 
