@@ -55,18 +55,6 @@ export default function RequestServicePage() {
 
   return (
     <div style={{ backgroundColor: '#f6f6f6', minHeight: '100vh', color: '#202122', fontFamily: 'sans-serif' }}>
-      {/* Wikipedia Top Utility Bar */}
-      <div style={{
-        display: 'flex', justifyContent: 'flex-end', padding: '4px 20px',
-        fontSize: '12px', borderBottom: '1px solid #eaecf0', backgroundColor: '#ffffff',
-        gap: '15px', color: '#54595d'
-      }}>
-        <span>Not logged in</span>
-        <span style={{ cursor: 'pointer' }}>Talk</span>
-        <span style={{ cursor: 'pointer' }}>Contributions</span>
-        <span style={{ cursor: 'pointer', color: '#0645ad' }}>Create account</span>
-        <span style={{ cursor: 'pointer', color: '#0645ad' }}>Log in</span>
-      </div>
 
       {/* Main Container */}
       <div style={{ display: 'flex', maxWidth: '1200px', margin: '0 auto', backgroundColor: '#ffffff', borderLeft: '1px solid #a2a9b1', borderRight: '1px solid #a2a9b1', minHeight: 'calc(100vh - 25px)' }}>
