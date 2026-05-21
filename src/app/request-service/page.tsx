@@ -23,7 +23,18 @@ export default function RequestServicePage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/services').then(r => r.json()).then(d => { if (d.success) setServices(d.data); });
+    fetch('/api/services')
+      .then(r => r.json())
+      .then(d => { 
+        if (d.success) {
+          setServices(d.data);
+        } else {
+          setError(d.error?.message || 'Database connection failed. Please check MONGODB_URI on Vercel.');
+        }
+      })
+      .catch(e => {
+        setError('Failed to fetch services. Is the API route accessible?');
+      });
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
